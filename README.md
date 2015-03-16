@@ -1,6 +1,6 @@
 # DRL
 
-**[DRL](http://www.deepgamer.org/index/)** is an implementation of the deep
+**[DRL](http://drlearner.org/index/)** is an implementation of the deep
 reinforcement learning algorithm, described in [Playing Atari with Deep
 Reinforcement Learning](http://www.cs.toronto.edu/~vmnih/docs/dqn.pdf) paper
 by [DeepMind](http://deepmind.com/).
@@ -50,4 +50,4 @@ bash gpuRun.sh main.py
 ```
 
 For the detailed instructions and descriptions, please, navigate to the **DRL**
-[website](http://www.deepgamer.org/index/) and download the project documentation.
+[website](http://drlearner.org/index/) and download the project documentation.
