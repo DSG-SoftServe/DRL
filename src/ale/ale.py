@@ -81,6 +81,8 @@ class ale:
         self.__get_param__()
         if self.game_over:
             self.reward_from_emulator = -1
+        # Hack for rewards bigger than 1 or -1
+        self.reward_from_emulator = np.clip(self.reward_from_emulator, -1, 1)
         # TODO Custom skip frames for play class
         self.memory.insert(index_of_action, self.reward_from_emulator, self.preprocessing.preprocess(self.screen_image))
         # Building of rewards graphic
