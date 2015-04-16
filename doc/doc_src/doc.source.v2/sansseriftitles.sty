@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sansseriftitles}[2008/03/05 Typesets all titles in sans-serif fonts]
+
+% Report bugs to Manas Tungare, <manas@tungare.name>
+% I specifically disclaim all copyright and dedicate this to the public domain.
+
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \sffamily
+    \ifnum \c@secnumdepth >\m@ne
+        \large \bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 10\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \sffamily
+    \interlinepenalty\@M
+    \Huge\bfseries  #1\par\nobreak
+    \vskip 20\p@
+  }}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+    {-3.5ex \@plus -0.1ex \@minus -.2ex}%
+    {0.2ex \@plus.01ex}%
+    {\sffamily\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+    {-3.25ex\@plus -0.1ex \@minus -.2ex}%
+    {0.2ex \@plus .01ex}%
+    {\sffamily\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+    {-3.25ex\@plus -0.1ex \@minus -.2ex}%
+    {0.2ex \@plus .01ex}%
+    {\sffamily\MakeUppercase\small\bfseries}}
