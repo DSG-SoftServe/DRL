@@ -146,20 +146,19 @@ class LayerNN(object):
             weights = np.random.randn(self.size_out * self.pool_size, self.size_in)
 
         #weights rescale
-        #weights_min = np.min(weights)
-        #weights = weights - weights_min
-        #weights_max = np.max(weights)
-        #weights = weights / weights_max
+        weights_min = np.min(weights)
+        weights = weights - weights_min
+        weights_max = np.max(weights)
+        weights = weights / weights_max
 
-        #w = theano.shared((weights * 2 * random - random).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
-        w = theano.shared((weights * 0.01).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
+        w = theano.shared((weights * 2 * random - random).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
 
         W['w'] = w
 
         if self.activation != FunctionModel.MaxOut:
-            b = theano.shared(np.tile(0.1, (self.size_out,)).astype(theano.config.floatX), name="b%s" % (layerNum + 1))
+            b = theano.shared(np.tile(0.0, (self.size_out,)).astype(theano.config.floatX), name="b%s" % (layerNum + 1))
         else:
-            b = theano.shared(np.tile(0.1, (self.size_out * self.pool_size,)).astype(theano.config.floatX),
+            b = theano.shared(np.tile(0.0, (self.size_out * self.pool_size,)).astype(theano.config.floatX),
                               name="b%s" % (layerNum + 1))
         W['b'] = b
         net.varWeights.append(W)
@@ -379,8 +378,7 @@ class LayerCNN(LayerNN):
             raise NotImplementedError('MaxOut activation function for Convolution nets is not implemented yet!')
 
         #Random init for CNN. Without reshape. Init exact kernel shape
-        #weights = np.random.standard_normal(size=self.kernel_shape)
-        weights = np.random.randn(*self.kernel_shape)
+        weights = np.random.standard_normal(size=self.kernel_shape)
 
         #if self.activation != FunctionModel.MaxOut:
         #    #Random init for CNN. Without reshape. Init exact kernel shape
@@ -389,18 +387,17 @@ class LayerCNN(LayerNN):
         #    weights = np.random.standard_normal(size=(self.kernel_shape[0] * self.pool_size, self.kernel_shape[1], self.kernel_shape[2], self.kernel_shape[3]))
 
         #weights rescale
-        #weights_min = np.min(weights)
-        #weights = weights - weights_min
-        #weights_max = np.max(weights)
-        #weights = weights / weights_max
+        weights_min = np.min(weights)
+        weights = weights - weights_min
+        weights_max = np.max(weights)
+        weights = weights / weights_max
 
-        #w = theano.shared((weights * 2 * random - random).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
-        w = theano.shared((weights * 0.01).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
+        w = theano.shared((weights * 2 * random - random).astype(theano.config.floatX), name="w%s" % (layerNum + 1))
 
         W['w'] = w
 
         #Bias shape == number of kernels
-        b = theano.shared(np.tile(0.1, (self.kernel_shape[0],)).astype(theano.config.floatX), name="b%s" % (layerNum + 1))
+        b = theano.shared(np.tile(0.0, (self.kernel_shape[0],)).astype(theano.config.floatX), name="b%s" % (layerNum + 1))
 
         W['b'] = b
         net.varWeights.append(W)
@@ -548,7 +545,7 @@ class OptionsStore(object):
     def __init__(self,
                  learnStep=0.01,
                  rmsProp=False,
-                 mmsmin=1e-6, # -10
+                 mmsmin=1e-10,
                  rProp=False,
                  minibatch_size=1,
                  CV_size=1):
@@ -680,8 +677,7 @@ class TheanoNNclass(object):
                                      name="mmsp%s" % (i + 1))  # 0.0 - 1.0 maybe
                 self.MMSprev.append(mmsp)
                 mmsn = self.options.rmsProp * mmsp + (1 - self.options.rmsProp) * self.derivativesArray[i] ** 2
-                #mmsn = T.clip(mmsn, self.options.mmsmin, 1e+15)  # Fix nan if rmsProp
-                mmsn = T.clip(mmsn, self.options.mmsmin, np.finfo(np.float32).max)  # Fix nan if rmsProp
+                mmsn = T.clip(mmsn, self.options.mmsmin, 1e+15)  # Fix nan if rmsProp
                 self.MMSnew.append(mmsn)
 
         # Update values

@@ -19,7 +19,7 @@ class neuralnet:
 
         L1 = fTheanoNNclassCORE.LayerCNN(size_in=28224,
                                          size_out=6400,
-                                         activation=fTheanoNNclassCORE.FunctionModel.LReLU,   # ReLu for gs
+                                         activation=fTheanoNNclassCORE.FunctionModel.ReLU,   # LReLU for non gs
                                          weightDecay=1e-6,
                                          sparsity=False,
                                          beta=2,
@@ -32,7 +32,7 @@ class neuralnet:
 
         L2 = fTheanoNNclassCORE.LayerCNN(size_in=6400,
                                          size_out=2592,
-                                         activation=fTheanoNNclassCORE.FunctionModel.LReLU,   # ReLu for gs
+                                         activation=fTheanoNNclassCORE.FunctionModel.ReLU,   # LReLU for non gs
                                          weightDecay=1e-6,
                                          sparsity=False,
                                          beta=2,

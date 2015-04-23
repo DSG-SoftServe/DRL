@@ -15,13 +15,13 @@ class preprocessing:
         # Debug
         #np.set_printoptions(threshold=np.nan)
 
-    def preprocess(self, image_data, bnw=True, saving=False):   # ReLu if bnw False
+    def preprocess(self, image_data, bnw=False, saving=False):   # LReLu if bnw True
         # Crop image
         cropped_img = image_data[160 * 33 * 2 : 160 * 193 * 2]
         # Convert image
         pixels = np.fromstring(unhexlify(cropped_img), dtype=np.uint8)   # TODO Scale to 0-1 if not bin
         pixels = pixels.reshape((160, 160))
-        pixels = scipy.misc.imresize(pixels, (84,84))
+        pixels = scipy.misc.imresize(pixels, (84, 84))
         # Convert to bnw
         if bnw:
             fil = np.zeros(pixels.shape)
