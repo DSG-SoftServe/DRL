@@ -15,7 +15,7 @@ class play:
         self.minibatch_size = 128
         self.n_net = neuralnet(self.minibatch_size)
         self.memory = memory(size=self.size)
-        self.ale = ale(self.memory, frames_to_skip=6)
+        self.ale = ale(self.memory, frames_to_skip=6)   # 5 for space invaders
         # Loading model
         self.n_net.loadModel('./models/Breakout_AS.model.weights.NN.NMem.3187644')
         # For Pillow lower than 2.7.0 version

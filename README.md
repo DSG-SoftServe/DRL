@@ -47,6 +47,25 @@ bash ./install.sh
 To launch the learning process, run the following command from *src* directory:
 ```bash
 bash gpuRun.sh main.py
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Trying other ROMs
+
+First 
+
+To change the game for DRL Agent training, navigate to **src\DRL-master\src\ale** directory and open  ale.py on editing 
+Change destination "*.bin" for def __init__(ale_game_ROM) (default  is '../emulators/ale_0_4/roms/breakout.bin',  Example: '../emulators/ale_0_4/roms/all/space_invaders.bin')
+ 
+Next 
+Navigate to **src\DRL-master\src\** directory and open  play.py on editing. 
+Change the Model to be used  by changing  self.n_net.loadModel  in  def __init__(self).   (Example: Change ('./models/AS.model.weights.NN.NMem.1') to ('./models/AS.model.weights.NN.NMem.2'), You may also change the path here if needed)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Attention!
+For Space Invaders Game change ale(frames_to_skip) to 5 (instead of 6) in play.py , main_exp.py and human_play.py files.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ```
 
 For the detailed instructions and descriptions, please, navigate to the **DRL**

@@ -48,7 +48,7 @@ class play:
         self.minibatch_size = 128
         self.n_net = neuralnet(self.minibatch_size)
         self.memory = memory(size=self.size)
-        self.ale = ale(self.memory, frames_to_skip=6)
+        self.ale = ale(self.memory, frames_to_skip=6)   # 5 for space invaders
 
     def run_game(self):
         global char, t
@@ -88,6 +88,9 @@ class play:
 
 if __name__ == '__main__':
     P = play()
+    # Uncomment if you don't want prints in console
+    #sys.stdout = open(os.devnull, "w")
     P.run_game()
+    #sys.stdout = sys.__stdout__
 
 #-----------------------------------------------#
