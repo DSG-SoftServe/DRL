@@ -47,10 +47,9 @@ bash ./install.sh
 To launch the learning process, run the following command from *src* directory:
 ```bash
 bash gpuRun.sh main.py
+```
 
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Trying other ROMs
+## Trying other ROMs
 
 First 
 
@@ -61,12 +60,10 @@ Next
 Navigate to **src\DRL-master\src\** directory and open  play.py on editing. 
 Change the Model to be used  by changing  self.n_net.loadModel  in  def __init__(self).   (Example: Change ('./models/AS.model.weights.NN.NMem.1') to ('./models/AS.model.weights.NN.NMem.2'), You may also change the path here if needed)
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 Attention!
 For Space Invaders Game change ale(frames_to_skip) to 5 (instead of 6) in play.py , main_exp.py and human_play.py files.
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-```
+---
 
 For the detailed instructions and descriptions, please, navigate to the **DRL**
 [website](http://drlearner.org/) and download the project documentation.
