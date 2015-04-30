@@ -11,7 +11,7 @@ from TNNF import fTheanoNNclassCORE, fGraphBuilderCORE
 class ale:
     def __init__(self, memory, display_screen="true", frames_to_skip=4, ale_game_ROM='../emulators/ale_0_4/roms/breakout.bin'):
         # List of possible actions for agent
-        self.actions_list = [np.uint8(0), np.uint8(1), np.uint8(3), np.uint8(4)]   # np.uint8(2), np.uint8(5) boxing
+        self.actions_list = [np.uint8(0), np.uint8(1), np.uint8(3), np.uint8(4)]   # np.uint8(2), np.uint8(5) instead 3 and 4 for Boxing ROM
         # Read and write commands and response from emulator
         self.f_in = ""
         self.f_out = ""
@@ -55,7 +55,7 @@ class ale:
         self.reward_from_emulator = int(step_information.split(",")[1])
     
     def __first_fire_(self):
-        self.f_out.write("1,40\n")   # 1,0 for Breakout if not work
+        self.f_out.write("1,18\n")   # 1,40 if not work ; (page 9 of ALE manual)
         self.f_out.flush()
         self.f_in.readline()
         
@@ -76,7 +76,7 @@ class ale:
         
     def move(self, index_of_action):
         action = self.actions_list[index_of_action]
-        self.f_out.write(str(action)+",40\n")   # ,0 for Breakout if not work
+        self.f_out.write(str(action)+",18\n")   # ,40 if not work ; (page 9 of ALE manual)
         self.f_out.flush()
         self.__get_param__()
         if self.game_over:

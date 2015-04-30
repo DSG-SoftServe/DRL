@@ -17,7 +17,7 @@ class play:
         self.memory = memory(size=self.size)
         self.ale = ale(self.memory, frames_to_skip=6)   # 5 for space invaders
         # Loading model
-        self.n_net.loadModel('./models/Breakout_AS.model.weights.NN.NMem.3187644')
+        self.n_net.loadModel('./models/Improved_Breakout_AS.model.weights.NN.NMem.3707295')
         # For Pillow lower than 2.7.0 version
         #self.n_net.loadModel('./models/~~p-AS.model.weights.NN.NMem.906508')
                        
