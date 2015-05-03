@@ -21,7 +21,7 @@ class preprocessing:
         # Convert image
         pixels = np.fromstring(unhexlify(cropped_img), dtype=np.uint8)   # TODO Scale to 0-1 if not bin
         pixels = pixels.reshape((160, 160))
-        pixels = scipy.misc.imresize(pixels, (84, 84))
+        pixels = scipy.misc.imresize(pixels, (84, 84))  # Try without cubic or linear int.
         # Convert to bnw
         if bnw:
             fil = np.zeros(pixels.shape)
