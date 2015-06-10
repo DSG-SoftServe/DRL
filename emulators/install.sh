@@ -1,2 +1,1 @@
-cd ./ale_0_4
-make
+cd ./ale_0_4    make

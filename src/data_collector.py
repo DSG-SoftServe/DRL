@@ -33,6 +33,8 @@ for memfile in memlist:
 
 print "\nLoaded..."
 
+# INSERT HERE MAPPER IF YOU NEED __mapper__ from pretrain_main_exp.py
+
 f = file('./AS.memory.D.' + str(len(D)), 'wb')
 cPickle.dump(D, f, protocol=cPickle.HIGHEST_PROTOCOL)
 f.close()

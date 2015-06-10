@@ -109,7 +109,8 @@ class neuralnet:
         w = np.sum(w0) + np.sum(w1)
         print "Weight sum ", w
         self.waccum.append(w)
-        fTheanoNNclassCORE.NNsupport.errorG(self.waccum, "./graphs/wsum.png")
+        # UNCOMMENT IF YOU NEED GRAPHS
+        #fTheanoNNclassCORE.NNsupport.errorG(self.waccum, "./graphs/wsum.png")
         if len(self.waccum) > 25:
             self.waccum = []
                 

@@ -46,7 +46,7 @@ bash ./install.sh
 
 To launch the learning process, run the following command from *src* directory:
 ```bash
-bash gpuRun.sh main.py
+bash gpuRun.sh main_exp.py
 ```
 
 ### Trying other ROMs

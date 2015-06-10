@@ -31,7 +31,7 @@ class main:
         # -------
         for b in batch:
             print b['action'],
-            if b['action'] == 3 or b['action'] == 4:
+            if b['action'] == 3 or b['action'] == 4:   # b['action'] == 3 delete
                 b['action'] = 0
             if b['action'] == 5:
                 b['action'] = 3
@@ -42,7 +42,7 @@ class main:
             # Measurement of time for iteration
             timeStart = time.time()
             btch = self.memory.get_minibatch(self.minibatch_size)
-            self.__mapper__(btch)   # Only if there are mistakes in ale.py self.actions_list
+            #self.__mapper__(btch)   # Only if there are mistakes in ale.py self.actions_list
             self.n_net.train(btch)
             self.steps += 1
             timeStop = time.time()
