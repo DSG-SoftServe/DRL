@@ -94,8 +94,9 @@ class ale:
             self.p_g_a.append(self.rewards_moment / (self.play_games + 1.0 * (self.play_games == 0)))            
             self.rewards_moment = 0
             self.play_games = 0
-            fTheanoNNclassCORE.NNsupport.errorG(self.rewards_accum, "./graphs/rewards.png")
-            fTheanoNNclassCORE.NNsupport.errorG(self.p_g_a, "./graphs/rgstat.png")
+            # UNCOMMENT IF YOU NEED GRAPHS
+            #fTheanoNNclassCORE.NNsupport.errorG(self.rewards_accum, "./graphs/rewards.png")
+            #fTheanoNNclassCORE.NNsupport.errorG(self.p_g_a, "./graphs/rgstat.png")
             if len(self.rewards_accum) > 250:
                 self.rewards_accum = []
                 self.p_g_a = []

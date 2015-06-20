@@ -1,0 +1,16 @@
+So, here are the results for Breakout by 2 Human players, played sets with delays   0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1  0.15 0.2 0.25 0.3     seconds    
+(each set contained at least  10 results) in order to investigate the delay influence on a Human player performance. The assumptions of a delay  impact were  based on some researches of a Human reaction
+http://www.iaeng.org/publication/IMECS2012/IMECS2012_pp1449-1454.pdf
+http://www.iosrphr.org/papers/v2i3/R023452454.pdf
+http://www.bbc.co.uk/science/humanbody/sleep/sheep/reaction_version5.swf - test yourself
+ 
+The scale of delays was also taken regarding the above researches.
+On the graph below you can see the Human performance increases till delay is 0,25s. Higher delay provides no game score increase.
+Suggestions are to map delays on explanations:
+ 
+0,3s   - High Delay, easy to play for  any person
+0,25s  - Optimal delay, no extra skills or reaction needed
+0,2s – Normal delay, the player is concentrated and extra tension required
+0,15s – Low delay, complicated to play and extra skills, reaction and tension required.
+0,1s – Very low delay, for experienced and skilled players
+0,02s – Extremely low delay, Human player hardly can perform any  actions
