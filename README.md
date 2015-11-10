@@ -1,5 +1,8 @@
 # DRL
 
+This repo **is a fork of original** repo, copied for experiments.
+All actual development is going in original repo (Soft Serve SAG / **DRL**)
+
 **[DRL](http://drlearner.org/)** is an implementation of the deep
 reinforcement learning algorithm, described in [Playing Atari with Deep
 Reinforcement Learning](http://www.cs.toronto.edu/~vmnih/docs/dqn.pdf) paper
